@@ -23,9 +23,9 @@ services:
         # TODO: Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        # - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        # - zcat /tmp/database.sql.gz | mysql tugboat
-        # - rm /tmp/database.sql.gz
+        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        - zcat /tmp/database.sql.gz | mysql tugboat
+        - rm /tmp/database.sql.gz
 
       # Run any commands needed to prepare the site.  This is generally not needed
       # for database services.
@@ -34,7 +34,7 @@ services:
   # Define the webserver service.
   webserver:
     # This uses PHP 8.1.x with Apache: update to match your version of PHP.
-    image: tugboatqa/php:8.3-apache-bullseye
+    image: tugboatqa/php:8.3-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -49,8 +49,6 @@ services:
     commands:
       # The INIT command configures the webserver.
       init:
-        # Enable debugging
-        - set -x
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
@@ -68,9 +66,8 @@ services:
       # already be present.
       update:
         # Install/update packages managed by composer, including drush and Stage File Proxy.
-        - composer install --optimize-autoloader --verbose --no-interaction
-        # - composer require --dev drupal/stage_file_proxy
-        - composer require drush/drush
+        - composer install --optimize-autoloader
+        - composer require --dev drupal/stage_file_proxy
 
         # Set the tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
@@ -89,7 +86,7 @@ services:
         # public SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.  More commonly
         # we use Stage File Proxy, which we enable in the `build` step below.
-        # - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -105,9 +102,9 @@ services:
 
         # If you are downloading your files from a remove server, you won't need
         # to enable Stage File Proxy.
-        # - vendor/bin/drush pm:enable --yes stage_file_proxy
-        # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
-        # - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
+        - vendor/bin/drush pm:enable --yes stage_file_proxy
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
         # One last cache rebuild.
         - vendor/bin/drush cache:rebuild
