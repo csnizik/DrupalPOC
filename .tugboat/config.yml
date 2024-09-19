@@ -1,0 +1,18 @@
+services:
+  php:
+    image: tugboatqa/php:8.3-apache
+    commands:
+      pre_build:
+        - composer install
+        - cp web/sites/default/default.settings.php web/sites/default/settings.php
+        - mkdir web/sites/default/files
+        - chmod 777 web/sites/default/settings.php web/sites/default/files
+      post_build:
+        - drush si --db-url=mysql://tugboat:tugboat@mysql/tugboat --account-pass=admin -y
+    default: true
+
+  mysql:
+    image: tugboatqa/mysql:8
+    commands:
+      pre_build:
+        - mysql -u root -e "CREATE DATABASE tugboat"
