@@ -49,6 +49,8 @@ services:
     commands:
       # The INIT command configures the webserver.
       init:
+        # Enable debugging
+        - set -x
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
@@ -66,12 +68,12 @@ services:
       # already be present.
       update:
         # Install/update packages managed by composer, including drush and Stage File Proxy.
-        - composer install --optimize-autoloader
-        - composer require --dev drupal/stage_file_proxy
+        - composer install --optimize-autoloader --verbose --no-interaction
+        # - composer require --dev drupal/stage_file_proxy
+        - composer require drush/drush
 
         # Set the tugboat-specific Drupal settings.
-        # Overriding this by appending settings.tugboat.php if env var
-        # - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
         # Map your custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
