@@ -4,9 +4,10 @@ services:
     commands:
       pre_build:
         - composer install
-        - cp web/sites/default/default.settings.php web/sites/default/settings.php
-        - mkdir web/sites/default/files
-        - chmod 777 web/sites/default/settings.php web/sites/default/files
+        - 
+        # - cp web/sites/default/default.settings.php web/sites/default/settings.php
+        # - mkdir web/sites/default/files
+        # - chmod 777 web/sites/default/settings.php web/sites/default/files
       post_build:
         - drush si --db-url=mysql://tugboat:tugboat@mysql/tugboat --account-pass=admin -y
     default: true

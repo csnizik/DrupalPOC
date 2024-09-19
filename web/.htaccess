@@ -180,3 +180,7 @@ AddEncoding gzip svgz
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>
+<Directory /var/www/html/web>
+  AllowOverride All
+  Require all granted
+</Directory>
