@@ -25,8 +25,8 @@
 /web/robots.txt
 
 # Ignore configuration files that may contain sensitive information.
-/web/sites/*/settings*.php
-/web/sites/*/services*.yml
+/web/sites/default/settings.*.php
+/web/sites/*.services.yml
 
 # Ignore paths that contain user-generated content.
 /web/sites/*/files
@@ -64,9 +64,3 @@
 ehthumbs.db
 Thumbs.db
 ._*
-
-# Ignore Local Development files
-/web/sites/*.services.yml
-/web/sites/settings.*.php
-
-
