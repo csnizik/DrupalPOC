@@ -4,7 +4,7 @@ services:
     commands:
       pre_build:
         - composer install
-        - 
+        - echo "Composer install hath completed."
         # - cp web/sites/default/default.settings.php web/sites/default/settings.php
         # - mkdir web/sites/default/files
         # - chmod 777 web/sites/default/settings.php web/sites/default/files
