@@ -3,6 +3,12 @@ services:
     image: tugboatqa/php:8.3-apache
     default: true
     depends: database
+    commands:
+      init:
+        - echo "Start"
+        - echo ${TUGBOAT_ROOT}
+        - pwd
+        - echo "Done"
   database:
     image: tugboatqa/mariadb:10.11
     commands:
