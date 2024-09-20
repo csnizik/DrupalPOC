@@ -3,5 +3,10 @@ services:
     image: tugboatqa/php:8.3-apache
     default: true
     # depends: database
-
+  database:
+    image: tugboatqa/mariadb:10.11
+    commands:
+      init:
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
 
