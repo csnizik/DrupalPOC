@@ -9,7 +9,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
         - echo ${DOCROOT}
         - pwd
-        - ls -alh 
+        - ls -alh web
         - echo $FOO
         # - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
         - echo "Done"
