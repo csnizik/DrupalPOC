@@ -6,7 +6,8 @@ services:
     commands:
       init:
         - echo "Start"
-        - echo ${TUGBOAT_ROOT}
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        - echo ${DOCROOT}
         - pwd
         - echo "Done"
   database:
