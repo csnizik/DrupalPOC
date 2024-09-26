@@ -10,7 +10,7 @@ services:
         - echo ${DOCROOT}
         - pwd
         - echo $FOO
-        - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> /web/sites/default/settings.php
+        - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
         - echo "Done"
   database:
     image: tugboatqa/mariadb:10.11
