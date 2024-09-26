@@ -1,0 +1,7 @@
+name: 'Live ERD'
+type: module
+description: 'Does things.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - entity:entity
