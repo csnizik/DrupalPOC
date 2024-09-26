@@ -6,7 +6,9 @@ services:
     commands:
       init:
         - echo "Start"
-        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
         - echo ${DOCROOT}
         - pwd
         - ls -alh web/sites
