@@ -9,6 +9,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
         - echo ${DOCROOT}
         - pwd
+        - echo $FOO
         - echo "Done"
   database:
     image: tugboatqa/mariadb:10.11
