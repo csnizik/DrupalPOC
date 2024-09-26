@@ -1,0 +1,18 @@
+uuid: de412c57-44fe-4f1d-a825-1f664157b5dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.specimen
+id: node.specimen.title
+field_name: title
+entity_type: node
+bundle: specimen
+label: 'Specimen ID'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

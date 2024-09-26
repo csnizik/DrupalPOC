@@ -1,0 +1,29 @@
+uuid: 61b94b0c-d716-49a3-90c7-08ba372dc526
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_taxonomy
+    - node.type.specimen
+    - node.type.taxonomy
+id: node.specimen.field_taxonomy
+field_name: field_taxonomy
+entity_type: node
+bundle: specimen
+label: Taxonomy
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      taxonomy: taxonomy
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

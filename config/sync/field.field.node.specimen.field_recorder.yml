@@ -1,0 +1,29 @@
+uuid: c537eb8e-a1b1-4242-a6f8-4f03489cfb96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_recorder
+    - node.type.specimen
+id: node.specimen.field_recorder
+field_name: field_recorder
+entity_type: node
+bundle: specimen
+label: Recorder
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

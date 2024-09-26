@@ -1,0 +1,55 @@
+uuid: 0abcdd40-e902-4370-99dd-48acfcf715d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.specimen.field_institution
+    - field.field.node.specimen.field_location
+    - field.field.node.specimen.field_recorder
+    - field.field.node.specimen.field_taxonomy
+    - node.type.specimen
+  module:
+    - user
+id: node.specimen.default
+targetEntityType: node
+bundle: specimen
+mode: default
+content:
+  field_institution:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_location:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_recorder:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_taxonomy:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

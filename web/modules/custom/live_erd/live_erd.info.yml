@@ -4,4 +4,6 @@ description: 'Does things.'
 package: Custom
 core_version_requirement: ^10 || ^11
 dependencies:
-  - entity:entity
+  - drupal:field
+  - drupal:entity
+  - drupal:csv_serialization
