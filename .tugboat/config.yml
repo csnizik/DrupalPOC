@@ -5,21 +5,26 @@ services:
     depends: database
     commands:
       init:
-        - echo "Start"
+        # Install opcache and mod-rewrite
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
+        # Link the document root to the expected path.
         - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
-        - echo ${DOCROOT}
-        - pwd
-        - ls -alh web/sites
-        - ls -alh web/sites/default
-        - echo $FOO
+        # Link the config directory.
+        - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
+
         # - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
-        - echo "Done"
       update:
-        - echo "Update start"
-        - pwd && ls -alh web/sites/default
-        - echo "Done update"
+        - composer self-update
+        - composer install --optimize-autoloader
+        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings/local.php
+
+        - |
+          if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then \
+            rm -rf "${DOCROOT}/sites/default/files" \
+            tar -xvzf files.tgz \
+            mv files "${DOCROOT}/sites/default" \
+          fi
       build:
         - echo "Build start"
         - pwd && ls -alh web/sites/default
