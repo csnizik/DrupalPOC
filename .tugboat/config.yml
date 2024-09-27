@@ -25,7 +25,22 @@ services:
             tar -xvzf files.tgz
             mv files "${DOCROOT}/sites/default"
           fi
+
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
+
       build:
+        - composer install --optimize-autoloader
+        - drush cache:rebuild
+        - drush config:import -y
+        - drush updatedb -y
+        - drush cache:rebuild
+
+      start:
+        # Warm the homepage
+        - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
+
 
 
   database:
