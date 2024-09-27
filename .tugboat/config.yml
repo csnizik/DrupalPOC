@@ -20,10 +20,11 @@ services:
         - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - |
-          if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then \
-            rm -rf "${DOCROOT}/sites/default/files" \
-            tar -xvzf files.tgz \
-            mv files "${DOCROOT}/sites/default" fi
+          if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then
+            rm -rf "${DOCROOT}/sites/default/files"
+            tar -xvzf files.tgz
+            mv files "${DOCROOT}/sites/default"
+          fi
       build:
 
 
