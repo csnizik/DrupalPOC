@@ -34,10 +34,11 @@ services:
 
       build:
         - composer install --optimize-autoloader
-        - drush cache:rebuild
-        - drush config:import -y
-        - drush updatedb -y
-        - drush cache:rebuild
+        - composer require drush/drush
+        - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush config:import -y
+        - vendor/bin/drush updatedb -y
+        - vendor/bin/drush cache:rebuild
 
       start:
         # Warm the homepage
