@@ -69,4 +69,7 @@ Thumbs.db
 /web/sites/*.services.yml
 /web/sites/settings.*.php
 
-
+# THIS IS ONLY DURING DEVELOPMENT
+# Database has nothing of value in it so we don't care at this point that
+# it's in the repo. This is a dev-only shortcut.
+!data/*.sql
