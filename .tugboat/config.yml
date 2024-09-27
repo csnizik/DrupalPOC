@@ -13,7 +13,6 @@ services:
         # Link the config directory.
         - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
 
-        # - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
       update:
         - composer self-update
         - composer install --optimize-autoloader
@@ -53,4 +52,4 @@ services:
         - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
         - mysql -e 'DROP DATABASE tugboat; CREATE DATABASE tugboat;'
-        - if [ -f "/data/db.sql" ]; then cat /data/db.sql | mysql tugboat; else echo "Database file not found"; fi
+        - if [ -f "${TUGBOAT_ROOT}/data/db.sql" ]; then cat ${TUGBOAT_ROOT}/data/db.sql | mysql tugboat; else echo "Database file not found"; fi
