@@ -26,9 +26,7 @@ services:
             mv files "${DOCROOT}/sites/default" \
           fi
       build:
-        - echo "Build start"
-        - pwd && ls -alh web/sites/default
-        - echo "Done build"
+        
 
   database:
     image: tugboatqa/mariadb:10.11
