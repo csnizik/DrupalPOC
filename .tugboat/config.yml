@@ -17,7 +17,7 @@ services:
       update:
         - composer self-update
         - composer install --optimize-autoloader
-        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings/local.php
+        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - |
           if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then \
@@ -26,7 +26,7 @@ services:
             mv files "${DOCROOT}/sites/default" \
           fi
       build:
-        
+
 
   database:
     image: tugboatqa/mariadb:10.11
