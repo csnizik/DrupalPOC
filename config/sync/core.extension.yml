@@ -34,9 +34,10 @@ module:
   jquery_ui_menu: 0
   jquery_ui_resizable: 0
   link: 0
-  live_erd: 0
   menu_link_content: 0
   menu_ui: 0
+  migrate: 0
+  migrate_plus: 0
   mysql: 0
   node: 0
   options: 0
