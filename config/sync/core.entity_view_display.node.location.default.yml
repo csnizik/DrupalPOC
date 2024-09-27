@@ -1,0 +1,19 @@
+uuid: d499376e-0f82-4e18-8f2c-970a26ad9d57
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+  module:
+    - user
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: ecda6358-81ea-42df-8976-ae701b16c41f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_institution_code
+    - node.type.institution
+id: node.institution.field_institution_code
+field_name: field_institution_code
+entity_type: node
+bundle: institution
+label: 'Institution code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+name: 'BeeLab Migration'
+type: module
+description: 'Custom migration imports from MySQL database.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
