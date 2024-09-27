@@ -24,7 +24,7 @@ services:
             rm -rf "${DOCROOT}/sites/default/files" \
             tar -xvzf files.tgz \
             mv files "${DOCROOT}/sites/default" \
-          fi
+            fi
       build:
 
 
