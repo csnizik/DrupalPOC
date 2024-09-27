@@ -1,0 +1,34 @@
+services:
+  webserver:
+    image: tugboatqa/php:8.3-apache
+    default: true
+    depends: database
+    commands:
+      init:
+        - echo "Start"
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - echo ${DOCROOT}
+        - pwd
+        - ls -alh web/sites
+        - ls -alh web/sites/default
+        - echo $FOO
+        # - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
+        - echo "Done"
+      update:
+        - echo "Update start"
+        - pwd && ls -alh web/sites/default
+        - echo "Done update"
+      build:
+        - echo "Build start"
+        - pwd && ls -alh web/sites/default
+        - echo "Done build"
+
+  database:
+    image: tugboatqa/mariadb:10.11
+    commands:
+      init:
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+
