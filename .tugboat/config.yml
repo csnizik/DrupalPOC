@@ -53,4 +53,4 @@ services:
         - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
         - mysql -e 'DROP DATABASE tugboat; CREATE DATABASE tugboat;'
-        - zcat /data/db.sql
+        - if [ -f "/data/db.sql" ]; then cat /data/db.sql | mysql tugboat; else echo "Database file not found"; fi
