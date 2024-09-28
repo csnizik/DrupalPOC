@@ -49,20 +49,10 @@ services:
     image: tugboatqa/mariadb:10.11
     commands:
       init:
-    
+        - echo "init"
       build:
         init:
-          - printenv
-          - cd $TUGBOAT_ROOT
-          - echo "TR"
-          - pwd
-          - echo "ls"
-          - ls -alh
-          - cd $HOME
-          - echo "home"
-          - pwd
-          - echo "ls"
-          - ls -alh
+          - echo "build"
           - echo "searching..."
           - find / -name "snizik.txt" 2>/dev/null
 
