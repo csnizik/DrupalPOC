@@ -49,19 +49,22 @@ services:
     image: tugboatqa/mariadb:10.11
     commands:
       init:
-        - printenv
-        - cd $TUGBOAT_ROOT
-        - echo "TR"
-        - pwd
-        - echo "ls"
-        - ls -alh
-        - cd $HOME
-        - echo "home"
-        - pwd
-        - echo "ls"
-        - ls -alh
-        - echo "searching..."
-        - find / -name "snizik.txt" 2>/dev/null
+    
+      build:
+        init:
+          - printenv
+          - cd $TUGBOAT_ROOT
+          - echo "TR"
+          - pwd
+          - echo "ls"
+          - ls -alh
+          - cd $HOME
+          - echo "home"
+          - pwd
+          - echo "ls"
+          - ls -alh
+          - echo "searching..."
+          - find / -name "snizik.txt" 2>/dev/null
 
         # - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         # - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
