@@ -49,9 +49,6 @@ services:
     image: tugboatqa/mariadb:10.11
     commands:
       init:
-        - echo "pwd:"
-        - pwd
-        - echo "printenv:"
         - printenv
         - cd $TUGBOAT_ROOT
         - echo "now"
