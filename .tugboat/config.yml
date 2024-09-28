@@ -55,8 +55,7 @@ services:
         - mysql -e 'DROP DATABASE tugboat; CREATE DATABASE tugboat;'
         # - if [ -f "${TUGBOAT_ROOT}"/data/db.sql ]; then cp "${TUGBOAT_ROOT}/data.db.sql" /tmp/; else echo "Database file not found"; ls -alh; fi
       build:
-        init:
-          - echo "build"
-          - echo "searching..."
-          - find / -name "snizik.txt" 2>/dev/null
+        - echo "build"
+        - echo "searching..."
+        - find / -name "snizik.txt" 2>/dev/null
 
