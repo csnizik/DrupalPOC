@@ -54,8 +54,8 @@ services:
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
         - mysql -e 'DROP DATABASE tugboat; CREATE DATABASE tugboat;'
         # - if [ -f "${TUGBOAT_ROOT}"/data/db.sql ]; then cp "${TUGBOAT_ROOT}/data.db.sql" /tmp/; else echo "Database file not found"; ls -alh; fi
-      build:
-        - echo "build"
+      update:
+        - echo "update"
         - echo "searching..."
         - find / -name "snizik.txt" 2>/dev/null
 
