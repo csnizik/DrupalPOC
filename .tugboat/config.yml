@@ -35,7 +35,7 @@ services:
         - composer install --optimize-autoloader
         - composer require drush/drush
         - ln -s /var/lib/tugboat/vendor/bin/drush /usr/local/bin/drush
-        - drush cache:rebuild
+        - drush cache:rebuild --debug
         - drush config:import -y
         - drush updatedb -y
         - drush cache:rebuild
