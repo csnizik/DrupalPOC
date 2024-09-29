@@ -59,7 +59,7 @@ services:
   external-db:
     image: tugboatqa/mysql:5-debian
     commands:
-      init: mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';""
+      init: mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';"
 
   # Need to set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
   # phpmyadmin:
