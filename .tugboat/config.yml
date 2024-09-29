@@ -50,7 +50,6 @@ services:
     checkout: true # Need this line for a service to have access to repo
     commands:
       init:
-        - echo "init"
         - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
         - mysql -e "DROP DATABASE IF EXISTS tugboat; CREATE DATABASE tugboat; DROP USER IF EXISTS 'tugboat'@'%'; CREATE USER 'tugboat'@'%' IDENTIFIED BY 'tugboat'; GRANT ALL PRIVILEGES ON tugboat.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
@@ -58,8 +57,14 @@ services:
 
   external-db:
     image: tugboatqa/mysql:5-debian
+    checkout: true
     commands:
-      init: mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';"
+      init:
+        - mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';"
+        - mysql -e "DROP DATABASE IF EXISTS sarcophilus; CREATE DATABASE sarcophilus; DROP USER IF EXISTS 'tugboat'@'%'; CREATE USER 'tugboat'@'%' IDENTIFIED BY 'tugboat'; GRANT ALL PRIVILEGES ON sarcophilus.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
+        - if [ -f "${TUGBOAT_ROOT}/data/sarcophilus.sql" ]; then mysql -u tugboat -ptugboat tugboat < "${TUGBOAT_ROOT}/data/sarcophilus.sql"; else echo "Database file not found"; ls -alh; fi
+
+
 
   # Need to set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
   phpmyadmin:
