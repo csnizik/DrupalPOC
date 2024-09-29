@@ -13,27 +13,62 @@ services:
         # Link the config directory.
         - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
 
-        # - echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.tugboat.php')) { include \$app_root . '/' . \$site_path . '/settings.tugboat.php';}" >> ${DOCROOT}/web/sites/default/settings.php
       update:
         - composer self-update
         - composer install --optimize-autoloader
-        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings/local.php
+        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - |
-          if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then \
-            rm -rf "${DOCROOT}/sites/default/files" \
-            tar -xvzf files.tgz \
-            mv files "${DOCROOT}/sites/default" \
+          if [ -f "${TUGBOAT_ROOT}/files.tgz" ]; then
+            rm -rf "${DOCROOT}/sites/default/files"
+            tar -xvzf files.tgz
+            mv files "${DOCROOT}/sites/default"
+          else
+            mkdir "${DOCROOT}/sites/default/files"
           fi
-      build:
-        - echo "Build start"
-        - pwd && ls -alh web/sites/default
-        - echo "Done build"
 
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
+
+      build:
+        - composer install --optimize-autoloader
+        - composer require drush/drush
+        - ln -s /var/lib/tugboat/vendor/bin/drush /usr/local/bin/drush
+        - drush cache:rebuild --debug
+        - drush config:import -y
+        - drush updatedb -y
+        - drush cache:rebuild
+
+      start:
+        # Warm the homepage
+        - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
+
+  # Whatever you name the service here is what needs to be used as 'host' in Drupal's database settings in settings.php
   database:
     image: tugboatqa/mariadb:10.11
+    checkout: true # Need this line for a service to have access to repo
     commands:
       init:
         - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+        - mysql -e "DROP DATABASE IF EXISTS tugboat; CREATE DATABASE tugboat; DROP USER IF EXISTS 'tugboat'@'%'; CREATE USER 'tugboat'@'%' IDENTIFIED BY 'tugboat'; GRANT ALL PRIVILEGES ON tugboat.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
+        - if [ -f "${TUGBOAT_ROOT}/data/db.sql" ]; then mysql -u tugboat -ptugboat tugboat < "${TUGBOAT_ROOT}/data/db.sql"; else echo "Database file not found"; ls -alh; fi
+
+  external-db:
+    image: tugboatqa/mysql:5-debian
+    checkout: true
+    commands:
+      init:
+        - mysql -e "SET GLOBAL show_compatibility_56=ON;"
+        - mysql -e "ALTER USER 'tugboat'@'%' IDENTIFIED WITH mysql_native_password BY 'tugboat';"
+        - mysql -e "DROP DATABASE IF EXISTS sarcophilus; CREATE DATABASE sarcophilus;"
+        - mysql -e "DROP USER IF EXISTS 'tugboat'@'%'; CREATE USER 'tugboat'@'%' IDENTIFIED BY 'tugboat';"
+        - mysql -e "GRANT ALL PRIVILEGES ON sarcophilus.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
+        - if [ -f "${TUGBOAT_ROOT}/data/sarcophilus.sql" ]; then mysql -u tugboat -ptugboat sarcophilus < "${TUGBOAT_ROOT}/data/sarcophilus.sql"; else echo "Database file not found"; ls -alh; fi
+
+  # Need to set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
+  phpmyadmin:
+    expose: 80
+    image: phpmyadmin/phpmyadmin
 
