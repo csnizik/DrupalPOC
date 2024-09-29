@@ -67,7 +67,7 @@ services:
         - mysql -e "GRANT ALL PRIVILEGES ON sarcophilus.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
         - if [ -f "${TUGBOAT_ROOT}/data/sarcophilus.sql" ]; then mysql -u tugboat -ptugboat sarcophilus < "${TUGBOAT_ROOT}/data/sarcophilus.sql"; else echo "Database file not found"; ls -alh; fi
 
-  # Need to set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
+  # Set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
   phpmyadmin:
     expose: 80
     image: phpmyadmin/phpmyadmin
