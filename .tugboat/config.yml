@@ -58,4 +58,5 @@ services:
         - echo "start"
         - echo "searching..."
         - find / -name "snizik.txt" 2>/dev/null
+        - ls -alh /var/lib/
 
