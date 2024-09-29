@@ -44,8 +44,6 @@ services:
         # Warm the homepage
         - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
 
-
-
   database:
     image: tugboatqa/mariadb:10.11
     checkout: true # Need this line for a service to have access to repo
