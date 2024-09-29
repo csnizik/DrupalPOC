@@ -44,6 +44,7 @@ services:
         # Warm the homepage
         - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
 
+  # Whatever you name the service here is what needs to be used as 'host' in Drupal's database settings in settings.php
   database:
     image: tugboatqa/mariadb:10.11
     checkout: true # Need this line for a service to have access to repo
