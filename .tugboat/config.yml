@@ -47,19 +47,13 @@ services:
 
   database:
     image: tugboatqa/mariadb:10.11
+    checkout: true # Need this line for a service to have access to repo
     commands:
       init:
         - echo "init"
         - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
         - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
         - mysql -e 'DROP DATABASE tugboat; CREATE DATABASE tugboat;'
-        - echo "searching..."
-        - ls -alh /var/lib/git
-        - ls -alh /var/lib/misc
-
-        - ls -alh /var/lib/pam
-        - ls -alh /var/lib/systemd
-        - ls -alh /var/lib/ucf
-        # - if [ -f "${TUGBOAT_ROOT}"/data/db.sql ]; then cp "${TUGBOAT_ROOT}/data.db.sql" /tmp/; else echo "Database file not found"; ls -alh; fi
+        - if [ -f "${TUGBOAT_ROOT}"/data/db.sql ]; then cp "${TUGBOAT_ROOT}/data.db.sql" /tmp/; else echo "Database file not found"; ls -alh; fi
       start:
 
