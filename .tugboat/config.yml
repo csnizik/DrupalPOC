@@ -24,7 +24,7 @@ services:
             tar -xvzf files.tgz
             mv files "${DOCROOT}/sites/default"
           else
-            mkdir "${DOCROOT}/sites/default/files"
+            mkdir -p "${DOCROOT}/sites/default/files"
           fi
 
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
