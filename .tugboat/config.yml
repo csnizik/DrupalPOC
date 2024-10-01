@@ -24,7 +24,7 @@ services:
             tar -xvzf files.tgz
             mv files "${DOCROOT}/sites/default"
           else
-            mkdir "${DOCROOT}/sites/default/files"
+            mkdir -p "${DOCROOT}/sites/default/files"
           fi
 
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
@@ -34,7 +34,7 @@ services:
       build:
         - composer install --optimize-autoloader
         - composer require drush/drush
-        - ln -s /var/lib/tugboat/vendor/bin/drush /usr/local/bin/drush
+        - if [ ! -L /usr/local/bin/drush ]; then ln -s /var/lib/tugboat/vendor/bin/drush /usr/local/bin/drush; fi
         - drush cache:rebuild --debug
         - drush config:import -y
         - drush updatedb -y
@@ -67,7 +67,7 @@ services:
         - mysql -e "GRANT ALL PRIVILEGES ON sarcophilus.* TO 'tugboat'@'%'; FLUSH PRIVILEGES;"
         - if [ -f "${TUGBOAT_ROOT}/data/sarcophilus.sql" ]; then mysql -u tugboat -ptugboat sarcophilus < "${TUGBOAT_ROOT}/data/sarcophilus.sql"; else echo "Database file not found"; ls -alh; fi
 
-  # Need to set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
+  # Set environment variables in Tugboat > My Projects > [projectname] > Repository Settings > Environment Variables: PMA_HOST: (name of the dbservice, external-db), PMA_USER: tugboat, PMA_PASSWORD: tugboat
   phpmyadmin:
     expose: 80
     image: phpmyadmin/phpmyadmin
