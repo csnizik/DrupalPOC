@@ -23,6 +23,7 @@
         "drupal/csv_serialization": "^4.0",
         "drupal/entity": "^1.5",
         "drupal/erd": "^2.0",
+        "drupal/geofield": "^1.61",
         "drupal/migrate_plus": "^6.0",
         "drupal/token": "^1.15",
         "drush/drush": "^13.2"
