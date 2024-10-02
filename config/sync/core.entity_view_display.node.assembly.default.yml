@@ -1,0 +1,86 @@
+uuid: 702b2713-6c26-4e72-9766-b23d5aedc6bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.assembly.field_assembly_accession
+    - field.field.node.assembly.field_blast_link
+    - field.field.node.assembly.field_chromosome_count
+    - field.field.node.assembly.field_contig_n50
+    - field.field.node.assembly.field_estimated_size
+    - field.field.node.assembly.field_submission_date
+    - field.field.node.assembly.field_submitter
+    - node.type.assembly
+  module:
+    - link
+    - user
+id: node.assembly.default
+targetEntityType: node
+bundle: assembly
+mode: default
+content:
+  field_assembly_accession:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_blast_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_chromosome_count:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_contig_n50:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_estimated_size:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_submission_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_submitter:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

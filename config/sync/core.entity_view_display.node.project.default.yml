@@ -1,0 +1,19 @@
+uuid: c2e14bb8-26e2-4563-8353-0e86f9628005
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.project
+  module:
+    - user
+id: node.project.default
+targetEntityType: node
+bundle: project
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

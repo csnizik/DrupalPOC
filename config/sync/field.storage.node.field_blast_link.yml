@@ -1,0 +1,19 @@
+uuid: f8b15db1-4710-4098-9031-6026b7a2c32f
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_blast_link
+field_name: field_blast_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

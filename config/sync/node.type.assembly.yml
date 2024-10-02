@@ -1,0 +1,17 @@
+uuid: a76fcc90-d013-4946-85e1-72ccc0c0dcc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Assembly
+type: assembly
+description: null
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

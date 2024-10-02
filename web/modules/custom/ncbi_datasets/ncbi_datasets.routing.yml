@@ -1,0 +1,7 @@
+ncbi_datasets.search_form:
+  path: '/admin/config/ncbi-datasets/search'
+  defaults:
+    _form: '\Drupal\ncbi_datasets\Form\NcbiDatasetForm'
+    _title: 'NCBI Dataset Search'
+  requirements:
+    _permission: 'administer site configuration'

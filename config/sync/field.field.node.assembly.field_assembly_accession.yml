@@ -1,0 +1,19 @@
+uuid: 4506a131-c184-4eb9-b7db-6505537f19b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assembly_accession
+    - node.type.assembly
+id: node.assembly.field_assembly_accession
+field_name: field_assembly_accession
+entity_type: node
+bundle: assembly
+label: 'Assembly Accession'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

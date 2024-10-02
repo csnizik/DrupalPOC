@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function ncbi_datasets_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ncbi_datasets':
+      return '<p>' . t('NCBI Datasets Integration module helps in importing datasets.') . '</p>';
+  }
+}

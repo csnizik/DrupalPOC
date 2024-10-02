@@ -21,9 +21,12 @@
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/csv_serialization": "^4.0",
+        "drupal/devel": "^5.2",
         "drupal/entity": "^1.5",
         "drupal/erd": "^2.0",
         "drupal/geofield": "^1.61",
+        "drupal/geofield_map": "^11.0",
+        "drupal/leaflet": "^10.2",
         "drupal/migrate_plus": "^6.0",
         "drupal/token": "^1.15",
         "drush/drush": "^13.2"

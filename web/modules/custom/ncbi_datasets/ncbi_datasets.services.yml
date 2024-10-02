@@ -1,0 +1,4 @@
+services:
+  ncbi_datasets.service:
+    class: Drupal\ncbi_datasets\Service\NcbiDatasetService
+    arguments: ['@http_client', '@config.factory']

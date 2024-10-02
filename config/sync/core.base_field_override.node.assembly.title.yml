@@ -1,0 +1,18 @@
+uuid: 6d65985e-2594-4e52-93de-662c19705261
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.assembly
+id: node.assembly.title
+field_name: title
+entity_type: node
+bundle: assembly
+label: 'Display name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

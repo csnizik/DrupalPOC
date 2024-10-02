@@ -1,10 +1,12 @@
-uuid: 08fee358-95cb-4272-97d0-8c064654bed6
+uuid: 19a7df04-3068-41ed-b390-242f7b293eef
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.location.field_geo
     - node.type.location
   module:
+    - geofield
     - path
 id: node.location.default
 targetEntityType: node
@@ -16,6 +18,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_geo:
+    type: geofield_latlon
+    weight: 121
+    region: content
+    settings:
+      html5_geolocation: true
     third_party_settings: {  }
   path:
     type: path

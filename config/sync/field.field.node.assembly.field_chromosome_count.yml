@@ -1,0 +1,19 @@
+uuid: 0fb3420b-7370-4655-bf72-6c09444ce9e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chromosome_count
+    - node.type.assembly
+id: node.assembly.field_chromosome_count
+field_name: field_chromosome_count
+entity_type: node
+bundle: assembly
+label: 'Chromosome Count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

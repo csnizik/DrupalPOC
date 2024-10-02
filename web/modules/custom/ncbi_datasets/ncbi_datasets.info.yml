@@ -1,0 +1,6 @@
+name: 'NCBI Datasets Integration'
+type: module
+description: 'Integrates NCBI Datasets into a Drupal site.'
+package: Custom
+core_version_requirement: ^10 || ^11
+
