@@ -1,0 +1,29 @@
+uuid: 42a93a6f-dc81-48ad-8224-f03b516eae6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bioproject
+    - node.type.bioproject
+    - node.type.biosample
+id: node.biosample.field_bioproject
+field_name: field_bioproject
+entity_type: node
+bundle: biosample
+label: Bioproject
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      bioproject: bioproject
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

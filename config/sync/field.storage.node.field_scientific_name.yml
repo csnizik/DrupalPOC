@@ -1,0 +1,19 @@
+uuid: 60b1b466-c975-4254-bfc6-32f5f557f062
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_scientific_name
+field_name: field_scientific_name
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

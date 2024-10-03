@@ -1,0 +1,18 @@
+uuid: ecfdc5dd-423f-4253-9aa6-45cb04f80641
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bioproject
+id: node.bioproject.title
+field_name: title
+entity_type: node
+bundle: bioproject
+label: Accession
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

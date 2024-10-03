@@ -22,7 +22,10 @@ module:
   dynamic_page_cache: 0
   editor: 0
   entity: 0
+  entity_reference_revisions: 0
   erd: 0
+  feeds: 0
+  feeds_ex: 0
   field: 0
   field_ui: 0
   file: 0
@@ -36,6 +39,7 @@ module:
   jquery_ui_menu: 0
   jquery_ui_resizable: 0
   leaflet: 0
+  leaflet_more_maps: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -60,6 +64,7 @@ module:
   user: 0
   views_ui: 0
   views: 10
+  paragraphs: 11
   standard: 1000
 theme:
   olivero: 0

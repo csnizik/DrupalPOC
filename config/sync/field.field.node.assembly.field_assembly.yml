@@ -1,0 +1,19 @@
+uuid: fb62ec1f-89c1-4855-aa4b-a91496afafba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assembly
+    - node.type.assembly
+id: node.assembly.field_assembly
+field_name: field_assembly
+entity_type: node
+bundle: assembly
+label: Assembly
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

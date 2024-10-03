@@ -1,0 +1,22 @@
+uuid: 4253724a-0c77-42cb-9371-8aa3fc281c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.organism.field_tax_id
+    - node.type.organism
+  module:
+    - user
+id: node.organism.teaser
+targetEntityType: node
+bundle: organism
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_tax_id: true

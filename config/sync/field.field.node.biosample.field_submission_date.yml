@@ -1,0 +1,19 @@
+uuid: 8ad30f96-0ae8-4ca3-8700-d09fc518d6c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_date
+    - node.type.biosample
+id: node.biosample.field_submission_date
+field_name: field_submission_date
+entity_type: node
+bundle: biosample
+label: 'Submission Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,105 @@
+uuid: 26d32d4a-b57c-459d-9c6d-e2a81d16cba0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.attributes.field_collected_by
+    - field.field.paragraph.attributes.field_collection_date
+    - field.field.paragraph.attributes.field_geo_loc_name
+    - field.field.paragraph.attributes.field_identified_by
+    - field.field.paragraph.attributes.field_individual
+    - field.field.paragraph.attributes.field_isolate
+    - field.field.paragraph.attributes.field_isolation_source
+    - field.field.paragraph.attributes.field_lat_lon
+    - field.field.paragraph.attributes.field_sex
+    - field.field.paragraph.attributes.field_tissue
+    - paragraphs.paragraphs_type.attributes
+  module:
+    - geofield
+id: paragraph.attributes.default
+targetEntityType: paragraph
+bundle: attributes
+mode: default
+content:
+  field_collected_by:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_collection_date:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_geo_loc_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_identified_by:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_individual:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_isolate:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_isolation_source:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lat_lon:
+    type: geofield_latlon
+    weight: 8
+    region: content
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+  field_sex:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tissue:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

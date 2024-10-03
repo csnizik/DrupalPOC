@@ -1,0 +1,21 @@
+uuid: a0ca9325-a840-461f-9265-e77e4e0023c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lat_lon
+    - paragraphs.paragraphs_type.attributes
+  module:
+    - geofield
+id: paragraph.attributes.field_lat_lon
+field_name: field_lat_lon
+entity_type: paragraph
+bundle: attributes
+label: Latitute/Longitude
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

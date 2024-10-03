@@ -1,0 +1,29 @@
+uuid: e2eeffc4-0c49-4813-9a24-80e8bf6d014e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sample_id.field_label
+    - field.field.paragraph.sample_id.field_value
+    - paragraphs.paragraphs_type.sample_id
+id: paragraph.sample_id.default
+targetEntityType: paragraph
+bundle: sample_id
+mode: default
+content:
+  field_label:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_value:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

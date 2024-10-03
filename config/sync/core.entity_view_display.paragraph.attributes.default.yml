@@ -1,0 +1,105 @@
+uuid: 5fd45920-fcd9-4cba-aafa-7f67340a2b73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.attributes.field_collected_by
+    - field.field.paragraph.attributes.field_collection_date
+    - field.field.paragraph.attributes.field_geo_loc_name
+    - field.field.paragraph.attributes.field_identified_by
+    - field.field.paragraph.attributes.field_individual
+    - field.field.paragraph.attributes.field_isolate
+    - field.field.paragraph.attributes.field_isolation_source
+    - field.field.paragraph.attributes.field_lat_lon
+    - field.field.paragraph.attributes.field_sex
+    - field.field.paragraph.attributes.field_tissue
+    - paragraphs.paragraphs_type.attributes
+  module:
+    - geofield
+id: paragraph.attributes.default
+targetEntityType: paragraph
+bundle: attributes
+mode: default
+content:
+  field_collected_by:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_collection_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_geo_loc_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_identified_by:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_individual:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_isolate:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_isolation_source:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lat_lon:
+    type: geofield_default
+    label: above
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_sex:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_tissue:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

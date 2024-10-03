@@ -1,0 +1,31 @@
+uuid: 1246ced1-6c5f-41a6-97b1-ebc6986deeac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sample_ids
+    - node.type.biosample
+    - paragraphs.paragraphs_type.sample_id
+  module:
+    - entity_reference_revisions
+id: node.biosample.field_sample_ids
+field_name: field_sample_ids
+entity_type: node
+bundle: biosample
+label: 'Sample IDs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sample_id: sample_id
+    negate: 0
+    target_bundles_drag_drop:
+      sample_id:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

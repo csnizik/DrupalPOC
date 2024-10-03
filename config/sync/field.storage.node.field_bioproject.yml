@@ -1,0 +1,19 @@
+uuid: 919b5b13-e757-4d6e-913c-94dccc8b638a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bioproject
+field_name: field_bioproject
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

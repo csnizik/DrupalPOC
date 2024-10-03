@@ -1,0 +1,19 @@
+uuid: 4a5c462b-1b65-477a-8b67-9ea943bc2048
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_refseq
+    - node.type.assembly
+id: node.assembly.field_refseq
+field_name: field_refseq
+entity_type: node
+bundle: assembly
+label: RefSeq
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,42 @@
+uuid: 70388735-a9d3-4f65-a96d-a2b2d18343ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.biosample.field_attributes
+    - field.field.node.biosample.field_bioproject
+    - field.field.node.biosample.field_description_title
+    - field.field.node.biosample.field_last_updated
+    - field.field.node.biosample.field_models
+    - field.field.node.biosample.field_organism
+    - field.field.node.biosample.field_package
+    - field.field.node.biosample.field_publication_date
+    - field.field.node.biosample.field_sample_ids
+    - field.field.node.biosample.field_status
+    - field.field.node.biosample.field_submission_date
+    - node.type.biosample
+  module:
+    - user
+id: node.biosample.teaser
+targetEntityType: node
+bundle: biosample
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_attributes: true
+  field_bioproject: true
+  field_description_title: true
+  field_last_updated: true
+  field_models: true
+  field_organism: true
+  field_package: true
+  field_publication_date: true
+  field_sample_ids: true
+  field_status: true
+  field_submission_date: true

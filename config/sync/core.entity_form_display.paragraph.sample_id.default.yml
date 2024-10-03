@@ -1,0 +1,32 @@
+uuid: 08d24d13-46e1-4ad1-9a3a-ff4c8a30c0dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sample_id.field_label
+    - field.field.paragraph.sample_id.field_value
+    - paragraphs.paragraphs_type.sample_id
+id: paragraph.sample_id.default
+targetEntityType: paragraph
+bundle: sample_id
+mode: default
+content:
+  field_label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_value:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

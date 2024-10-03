@@ -1,0 +1,19 @@
+uuid: f2bd71d2-1f02-409a-86ae-a63a2fc62a4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_identified_by
+    - paragraphs.paragraphs_type.attributes
+id: paragraph.attributes.field_identified_by
+field_name: field_identified_by
+entity_type: paragraph
+bundle: attributes
+label: 'Identified by'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

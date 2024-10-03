@@ -1,0 +1,19 @@
+uuid: bb32be9a-ade0-4738-b8f7-700193c88912
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_value
+    - paragraphs.paragraphs_type.sample_id
+id: paragraph.sample_id.field_value
+field_name: field_value
+entity_type: paragraph
+bundle: sample_id
+label: Value
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

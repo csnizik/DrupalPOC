@@ -1,0 +1,22 @@
+uuid: 504861ef-c9f6-4653-8131-023551fb95a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organism
+id: node.organism.promote
+field_name: promote
+entity_type: node
+bundle: organism
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

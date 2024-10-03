@@ -1,0 +1,10 @@
+uuid: 5e74a700-de14-4c9d-9b8e-ae76ca1980f4
+langcode: en
+status: true
+dependencies: {  }
+id: sample_id
+label: 'Sample ID'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: b0f614ba-3a8b-4a6b-84e2-7d1d280dbb43
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bioproject
+  module:
+    - user
+id: node.bioproject.default
+targetEntityType: node
+bundle: bioproject
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

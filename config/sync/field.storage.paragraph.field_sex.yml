@@ -1,0 +1,21 @@
+uuid: 7336eb7d-69d1-443a-8d94-e4bc4c123852
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_sex
+field_name: field_sex
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

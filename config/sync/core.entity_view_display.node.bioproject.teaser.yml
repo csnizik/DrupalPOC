@@ -1,0 +1,20 @@
+uuid: 0953f8b8-90ee-4976-bb89-2c4bb903f049
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.bioproject
+  module:
+    - user
+id: node.bioproject.teaser
+targetEntityType: node
+bundle: bioproject
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

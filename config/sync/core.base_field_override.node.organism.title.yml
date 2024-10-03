@@ -1,0 +1,18 @@
+uuid: dd59115b-2d93-419c-beee-3d11fe1a9db9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organism
+id: node.organism.title
+field_name: title
+entity_type: node
+bundle: organism
+label: 'Scientific Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

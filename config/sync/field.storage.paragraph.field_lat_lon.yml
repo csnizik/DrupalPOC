@@ -1,0 +1,20 @@
+uuid: d075d68f-1d0b-406a-8c1a-9ab9c914240f
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - paragraphs
+id: paragraph.field_lat_lon
+field_name: field_lat_lon
+entity_type: paragraph
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

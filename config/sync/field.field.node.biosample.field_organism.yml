@@ -1,0 +1,29 @@
+uuid: 115f39a9-5ed3-406e-96b9-f85570ead368
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_organism
+    - node.type.biosample
+    - node.type.organism
+id: node.biosample.field_organism
+field_name: field_organism
+entity_type: node
+bundle: biosample
+label: Organism
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organism: organism
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

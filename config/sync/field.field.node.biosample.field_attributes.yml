@@ -1,0 +1,37 @@
+uuid: e945e9cd-7c41-4650-996a-ae79754b9138
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attributes
+    - node.type.biosample
+    - paragraphs.paragraphs_type.attributes
+  module:
+    - entity_reference_revisions
+id: node.biosample.field_attributes
+field_name: field_attributes
+entity_type: node
+bundle: biosample
+label: Attributes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      attributes: attributes
+    negate: 0
+    target_bundles_drag_drop:
+      attributes:
+        weight: 4
+        enabled: true
+      sample_id:
+        weight: 5
+        enabled: false
+      status:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

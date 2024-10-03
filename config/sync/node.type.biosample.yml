@@ -1,0 +1,18 @@
+uuid: 30fed94d-b019-47a4-97e0-9e2fc03e3e2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Biosample
+type: biosample
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -3,13 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.assembly.field_annotation
+    - field.field.node.assembly.field_assembly
     - field.field.node.assembly.field_assembly_accession
     - field.field.node.assembly.field_blast_link
     - field.field.node.assembly.field_chromosome_count
     - field.field.node.assembly.field_contig_n50
     - field.field.node.assembly.field_estimated_size
+    - field.field.node.assembly.field_genbank
+    - field.field.node.assembly.field_level
+    - field.field.node.assembly.field_modifier
+    - field.field.node.assembly.field_refseq
+    - field.field.node.assembly.field_release_date
+    - field.field.node.assembly.field_scaffolds_count
+    - field.field.node.assembly.field_scientific_name
     - field.field.node.assembly.field_submission_date
     - field.field.node.assembly.field_submitter
+    - field.field.node.assembly.field_wgs_accession
     - node.type.assembly
   module:
     - link
@@ -24,6 +34,22 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_annotation:
+    type: string_textfield
+    weight: 133
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assembly:
+    type: string_textfield
+    weight: 128
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_assembly_accession:
     type: string_textfield
@@ -65,6 +91,62 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_genbank:
+    type: string_textfield
+    weight: 129
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_level:
+    type: string_textfield
+    weight: 134
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_modifier:
+    type: string_textfield
+    weight: 132
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_refseq:
+    type: string_textfield
+    weight: 130
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_release_date:
+    type: string_textfield
+    weight: 135
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_scaffolds_count:
+    type: string_textfield
+    weight: 137
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_scientific_name:
+    type: string_textarea
+    weight: 131
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_submission_date:
     type: string_textfield
     weight: 123
@@ -76,6 +158,14 @@ content:
   field_submitter:
     type: string_textarea
     weight: 122
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_wgs_accession:
+    type: string_textarea
+    weight: 136
     region: content
     settings:
       rows: 5

@@ -1,0 +1,32 @@
+uuid: 154f50b8-bb07-4416-b881-f0ce3646a32e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.status.field_status
+    - field.field.paragraph.status.field_when
+    - paragraphs.paragraphs_type.status
+id: paragraph.status.default
+targetEntityType: paragraph
+bundle: status
+mode: default
+content:
+  field_status:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_when:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

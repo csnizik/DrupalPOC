@@ -1,0 +1,19 @@
+uuid: 7e74e51b-0ce0-4b7e-8904-a64ac79ba113
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_annotation
+    - node.type.assembly
+id: node.assembly.field_annotation
+field_name: field_annotation
+entity_type: node
+bundle: assembly
+label: Annotation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

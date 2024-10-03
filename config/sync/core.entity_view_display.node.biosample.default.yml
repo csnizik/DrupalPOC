@@ -1,0 +1,121 @@
+uuid: 4d4862c6-063f-41eb-afef-8384ae591376
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.biosample.field_attributes
+    - field.field.node.biosample.field_bioproject
+    - field.field.node.biosample.field_description_title
+    - field.field.node.biosample.field_last_updated
+    - field.field.node.biosample.field_models
+    - field.field.node.biosample.field_organism
+    - field.field.node.biosample.field_package
+    - field.field.node.biosample.field_publication_date
+    - field.field.node.biosample.field_sample_ids
+    - field.field.node.biosample.field_status
+    - field.field.node.biosample.field_submission_date
+    - node.type.biosample
+  module:
+    - entity_reference_revisions
+    - user
+id: node.biosample.default
+targetEntityType: node
+bundle: biosample
+mode: default
+content:
+  field_attributes:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_bioproject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_description_title:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_last_updated:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_models:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_organism:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_package:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_publication_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_sample_ids:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_status:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_submission_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

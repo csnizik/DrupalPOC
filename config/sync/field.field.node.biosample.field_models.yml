@@ -1,0 +1,19 @@
+uuid: 48408f99-1d99-4b3e-9ea5-f455ef62238f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_models
+    - node.type.biosample
+id: node.biosample.field_models
+field_name: field_models
+entity_type: node
+bundle: biosample
+label: Models
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

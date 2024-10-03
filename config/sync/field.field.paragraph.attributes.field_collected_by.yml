@@ -1,0 +1,19 @@
+uuid: 1e21ecdb-15f4-4b56-a44b-a92a6b9e9f02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_collected_by
+    - paragraphs.paragraphs_type.attributes
+id: paragraph.attributes.field_collected_by
+field_name: field_collected_by
+entity_type: paragraph
+bundle: attributes
+label: 'Collected by'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

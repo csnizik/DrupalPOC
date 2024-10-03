@@ -1,0 +1,19 @@
+uuid: a9a72de3-cd4a-4408-9a6c-e16dda14404f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modifier
+    - node.type.assembly
+id: node.assembly.field_modifier
+field_name: field_modifier
+entity_type: node
+bundle: assembly
+label: Modifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

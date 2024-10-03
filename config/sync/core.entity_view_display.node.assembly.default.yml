@@ -3,13 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.assembly.field_annotation
+    - field.field.node.assembly.field_assembly
     - field.field.node.assembly.field_assembly_accession
     - field.field.node.assembly.field_blast_link
     - field.field.node.assembly.field_chromosome_count
     - field.field.node.assembly.field_contig_n50
     - field.field.node.assembly.field_estimated_size
+    - field.field.node.assembly.field_genbank
+    - field.field.node.assembly.field_level
+    - field.field.node.assembly.field_modifier
+    - field.field.node.assembly.field_refseq
+    - field.field.node.assembly.field_release_date
+    - field.field.node.assembly.field_scaffolds_count
+    - field.field.node.assembly.field_scientific_name
     - field.field.node.assembly.field_submission_date
     - field.field.node.assembly.field_submitter
+    - field.field.node.assembly.field_wgs_accession
     - node.type.assembly
   module:
     - link
@@ -19,6 +29,22 @@ targetEntityType: node
 bundle: assembly
 mode: default
 content:
+  field_annotation:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_assembly:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
   field_assembly_accession:
     type: string
     label: above
@@ -63,6 +89,61 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
+  field_genbank:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_level:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_modifier:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_refseq:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_release_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_scaffolds_count:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_scientific_name:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
   field_submission_date:
     type: string
     label: above
@@ -77,6 +158,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_wgs_accession:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 116
     region: content
   links:
     settings: {  }

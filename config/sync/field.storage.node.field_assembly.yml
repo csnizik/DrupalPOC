@@ -1,0 +1,21 @@
+uuid: c75fac9b-0d97-47fb-a300-d670769775dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_assembly
+field_name: field_assembly
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

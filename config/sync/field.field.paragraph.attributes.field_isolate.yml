@@ -1,0 +1,19 @@
+uuid: fb220bf4-ab4b-4094-b761-169dd88c7fc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_isolate
+    - paragraphs.paragraphs_type.attributes
+id: paragraph.attributes.field_isolate
+field_name: field_isolate
+entity_type: paragraph
+bundle: attributes
+label: Isolate
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 08e2b825-49c7-4269-ba6a-79645b4411a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_collection_date
+    - paragraphs.paragraphs_type.attributes
+id: paragraph.attributes.field_collection_date
+field_name: field_collection_date
+entity_type: paragraph
+bundle: attributes
+label: 'Collection Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

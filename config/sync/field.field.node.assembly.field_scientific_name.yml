@@ -1,0 +1,19 @@
+uuid: d7409e02-620b-4464-b2d9-4428fdc33210
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scientific_name
+    - node.type.assembly
+id: node.assembly.field_scientific_name
+field_name: field_scientific_name
+entity_type: node
+bundle: assembly
+label: 'Scientific Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

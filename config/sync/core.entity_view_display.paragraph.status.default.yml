@@ -1,0 +1,30 @@
+uuid: ed751765-ff58-48bf-ac53-83d215b37564
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.status.field_status
+    - field.field.paragraph.status.field_when
+    - paragraphs.paragraphs_type.status
+id: paragraph.status.default
+targetEntityType: paragraph
+bundle: status
+mode: default
+content:
+  field_status:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_when:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

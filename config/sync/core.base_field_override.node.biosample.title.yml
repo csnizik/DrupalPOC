@@ -1,0 +1,18 @@
+uuid: 908f868b-d224-43b4-b60f-797a1309d2dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.biosample
+id: node.biosample.title
+field_name: title
+entity_type: node
+bundle: biosample
+label: Accession
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

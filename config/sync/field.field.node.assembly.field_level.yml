@@ -1,0 +1,19 @@
+uuid: ee14175e-e92e-4264-a8a2-d0782920bd5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_level
+    - node.type.assembly
+id: node.assembly.field_level
+field_name: field_level
+entity_type: node
+bundle: assembly
+label: Level
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

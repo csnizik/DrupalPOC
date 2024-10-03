@@ -1,0 +1,19 @@
+uuid: 3221a235-51b8-4a32-bc20-a5c132fe134b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_geo_loc_name
+    - paragraphs.paragraphs_type.attributes
+id: paragraph.attributes.field_geo_loc_name
+field_name: field_geo_loc_name
+entity_type: paragraph
+bundle: attributes
+label: 'Geolocation name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
