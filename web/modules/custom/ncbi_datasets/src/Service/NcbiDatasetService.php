@@ -37,6 +37,7 @@ class NcbiDatasetService {
         ],
       ]);
       $data = json_decode($response->getBody(), TRUE);
+      dpm($data, "Data");
       return $data;
     } catch (\Exception $e) {
       \Drupal::logger('ncbi_datasets')->error($e->getMessage());

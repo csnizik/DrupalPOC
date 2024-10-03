@@ -69,55 +69,55 @@ class NcbiDatasetForm extends FormBase {
 
     // If results exist, display the table with checkboxes.
     if ($form_state->get('dataset_rows')) {
+      $total_results = count($form_state->get('dataset_rows'));
+      $form['results_count'] = [
+        '#markup' => $this->t('Displaying @count results', ['@count' => $total_results]),
+      ];
       $form['assembly_rows'] = [
         '#type' => 'table',
         '#header' => [
           $this->t('Select'),
-          $this->t('Assembly Accession'),
-          $this->t('Display Name'),
-          $this->t('Submitter'),
-          $this->t('Submission Date'),
-          $this->t('Chromosome Count'),
-          $this->t('Contig N50'),
-          $this->t('Estimated Size'),
-          $this->t('BLAST URL'),
+          $this->t('Assembly'),
+          $this->t('GenBank'),
+          $this->t('RefSeq'),
+          $this->t('Scientific Name'),
+          $this->t('Modifier'),
+          $this->t('Level'),
+          $this->t('Release Date')
         ],
       ];
 
       // Iterate through dataset rows and add them to the table.
-      foreach ($form_state->get('dataset_rows') as $key => $row) {
-        $form['assembly_rows'][$key] = [
-          'select' => [
-            '#type' => 'checkbox',
-            '#return_value' => 1,  // Return value for checked checkboxes.
-            '#default_value' => 0,  // Default to unchecked.
-          ],
-          'assembly_accession' => [
-            '#markup' => $row['assembly_accession'],
-          ],
-          'display_name' => [
-            '#markup' => $row['display_name'],
-          ],
-          'submitter' => [
-            '#markup' => $row['submitter'],
-          ],
-          'submission_date' => [
-            '#markup' => $row['submission_date'],
-          ],
-          'chromosome_count' => [
-            '#markup' => $row['chromosome_count'],
-          ],
-          'contig_n50' => [
-            '#markup' => $row['contig_n50'],
-          ],
-          'estimated_size' => [
-            '#markup' => $row['estimated_size'],
-          ],
-          'blast_url' => [
-            '#markup' => '<a href="' . htmlspecialchars($row['blast_url']) . '" target="_blank">BLAST Link</a>',
-          ],
-        ];
-      }
+foreach ($form_state->get('dataset_rows') as $key => $row) {
+  $form['assembly_rows'][$key] = [
+    'select' => [
+      '#type' => 'checkbox',
+      '#return_value' => 1,  // Return value for checked checkboxes.
+      '#default_value' => 0,  // Default to unchecked.
+    ],
+    'display_name' => [
+      '#markup' => $row['display_name'],
+    ],
+    'assembly_accession' => [
+      '#markup' => $row['assembly_accession'],
+    ],
+    'paired_assembly_accession' => [
+      '#markup' => $row['paired_assembly_accession'],
+    ],
+    'scientific_name' => [
+      '#markup' => $row['scientific_name'],
+    ],
+    'modifier' => [
+      '#markup' => $row['modifier'],
+    ],
+    'assembly_level' => [
+      '#markup' => $row['assembly_level'],
+    ],
+    'submission_date' => [
+      '#markup' => $row['submission_date'],
+    ],
+  ];
+}
 
       // Add the button to create nodes.
       $form['create_nodes'] = [
@@ -136,12 +136,18 @@ class NcbiDatasetForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // If the "Create Nodes" button was clicked.
     if ($form_state->getTriggeringElement()['#name'] == 'create_nodes') {
-      // Get selected rows (those with checkboxes checked).
-      $selected_rows = array_filter($form_state->getValue('assembly_rows'), function ($value) {
-        return $value === 1;  // Only return rows with checked checkboxes.
-      });
+    // Get selected rows (those with checkboxes checked).
+    $selected_rows = array_filter($form_state->getValue('assembly_rows'), function ($row) {
+      return isset($row['select']) && $row['select'] == 1;  // Only return rows with checked checkboxes.
+    });
 
       if (!empty($selected_rows)) {
+        $total_selected = count($selected_rows);
+        $create_biosamples = TRUE;
+        if ($total_selected > 2) {
+          \Drupal::messenger()->addMessage($this->t('You selected more than 2 rows. Biosamples will not be created.'));
+          $create_biosamples = FALSE;
+        }
         // Create nodes for selected rows.
         foreach ($selected_rows as $key => $value) {
           // Get the data for the selected row.
@@ -150,7 +156,7 @@ class NcbiDatasetForm extends FormBase {
           // Create a node of type 'assembly'.
           $node = Node::create([
             'type' => 'assembly',
-            'title' => $data['assembly_accession'],
+            'title' => $data['display_name'],
             'field_assembly_accession' => $data['assembly_accession'],
             'field_blast_link' => ['uri' => $data['blast_url'], 'title' => 'BLAST Link'],
             'field_chromosome_count' => $data['chromosome_count'],
@@ -158,10 +164,20 @@ class NcbiDatasetForm extends FormBase {
             'field_estimated_size' => $data['estimated_size'],
             'field_submission_date' => $data['submission_date'],
             'field_submitter' => $data['submitter'],
+            'field_genbank' => $data['paired_assembly_accession'],
+            'field_scientific_name' => $data['scientific_name'],
+            'field_modifier' => $data['modifier'],
+            'field_level' => $data['assembly_level'],
+            'field_release_date' => $data['submission_date']
           ]);
           $node->save();
         }
-
+        // if ($create_biosamples == TRUE) {
+        //   foreach ($data['biosample'] as $key => $biosampleItem) {
+        //     dpm(['key' => $key, 'value' => $biosampleItem]);
+        //     // We could create nodes of type biosample here but it could get too expensive.
+        //   }
+        // }
         // Show a success message.
         \Drupal::messenger()->addMessage($this->t('Selected assembly nodes created successfully.'));
       } else {
@@ -175,7 +191,6 @@ class NcbiDatasetForm extends FormBase {
     // Handle search functionality.
     $query = $form_state->getValue('search_query');
     $results = $this->datasetService->fetchDataset($query);
-
     if (!empty($results) && isset($results['assemblies'])) {
       $dataset_rows = [];
 
@@ -184,14 +199,19 @@ class NcbiDatasetForm extends FormBase {
           $assembly = $assemblyItem['assembly'];
 
           $dataset_rows[$key] = [
-            'assembly_accession' => isset($assembly['assembly_accession']) ? $assembly['assembly_accession'] : 'N/A',
-            'display_name' => isset($assembly['display_name']) ? $assembly['display_name'] : 'N/A',
-            'submitter' => isset($assembly['submitter']) ? $assembly['submitter'] : 'N/A',
-            'submission_date' => isset($assembly['submission_date']) ? $assembly['submission_date'] : 'N/A',
-            'chromosome_count' => isset($assembly['chromosomes']) ? count($assembly['chromosomes']) : 'N/A',
-            'contig_n50' => isset($assembly['contig_n50']) ? $assembly['contig_n50'] : 'N/A',
-            'estimated_size' => isset($assembly['estimated_size']) ? $assembly['estimated_size'] : 'N/A',
-            'blast_url' => isset($assembly['blast_url']) ? $assembly['blast_url'] : 'N/A',
+              'display_name' => isset($assembly['display_name']) ? $assembly['display_name'] : 'N/A',
+              'assembly_accession' => isset($assembly['assembly_accession']) ? $assembly['assembly_accession'] : 'N/A',
+              'paired_assembly_accession' => isset($assembly['paired_assembly_accession']) ? $assembly['paired_assembly_accession'] : 'N/A',
+              'scientific_name' => isset($assembly['org']['sci_name']) ? $assembly['org']['sci_name'] : 'N/A',
+              'chromosome_count' => isset($assembly['chromosomes']) ? count($assembly['chromosomes']) : 'N/A',
+              'contig_n50' => isset($assembly['contig_n50']) ? $assembly['contig_n50'] : 'N/A',
+              'submitter' => isset($assembly['submitter']) ? $assembly['submitter'] : 'N/A',
+              'estimated_size' => isset($assembly['estimated_size']) ? $assembly['estimated_size'] : 'N/A',
+              'blast_url' => isset($assembly['blast_url']) ? $assembly['blast_url'] : 'N/A',
+              'modifier' => isset($assembly['biosample']['attributes'][0]) ? $assembly['biosample']['attributes'][0]['value'] . " (" . $assembly['biosample']['attributes'][0]['name'] . ")" : 'N/A',
+              'scientific_name' => isset($assembly['org']['sci_name']) ? $assembly['org']['sci_name'] : 'N/A',
+              'assembly_level' => isset($assembly['assembly_level']) ? $assembly['assembly_level'] : 'N/A',
+              'submission_date' => isset($assembly['submission_date']) ? $assembly['submission_date'] : 'N/A'
           ];
         }
       }
